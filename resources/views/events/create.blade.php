@@ -6,7 +6,7 @@
 <section id="section-create">
     <div id="form-container">
         <h2 class="mb-3 display-6">Crie o seu evento:</h2>
-        <form method="post" action="/eventos">
+        <form method="post" action="/eventos" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Titulo</label>
@@ -30,6 +30,33 @@
                     <option value="1">Sim</option>
                     <option value="0" selected>Não</option>
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Imagem:</label>
+                <input type="file" id="image" class="form-control" name="image">
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Data:</label>
+                <input type="datetime-local" id="date" class="form-control" name="date">
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="items[]" value="Cadeiras">
+                Cadeiras
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="items[]" value="Palco">
+                Palco
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="items[]" value="Open Food">
+                Open Food
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="items[]" value="Brindes">
+                Brindes
             </div>
 
             <button type="submit" class="btn btn-primary px-5 my-3">Enviar</button>

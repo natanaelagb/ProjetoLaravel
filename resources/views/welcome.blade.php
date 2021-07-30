@@ -14,23 +14,31 @@
     </div>
 </section>
 
-<section id="events-container" class="my-4">
+<section id="events-container" class="mt-4">
     <div class="container">
-        <h2 class="display-6">Proximos Eventos</h2>
-        <p>Veja os eventos nos próximos dias</p>
+        <h2 class="display-6">Próximos Eventos</h2>
+        <p class="fs-5 text-secondary">Veja os eventos nos próximos dias</p>
         <div class="row">
             @foreach($events as $key)
             <div class="col-md-4 p-2">
-                <div class="card">
-                    <img src="img/event_placeholder.jpg">
+                <div class="card  single-event shadow-sm">
+                    <div class="event-image">
+                        <img src="/img/events/{{$key['image']}}" >
+                    </div>
+                    
                     <div class="card-body">
-                        <p>29/07/2021</p>
+                        <p>{{ date("d/m/Y H:i:s", strtotime($key['date'])) }}</p>
                         <p>{{$key['title']}}</p>
-                        <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        <a href="/eventos/{{$key['id']}}" class="btn btn-primary">Saiba Mais</a>
                     </div>
                 </div>
             </div>
             @endforeach
+
+            @if(count($events) == 0)
+                <p class="fs-5 text-secondary mt-3">Não há eventos disponíveis.</p>
+            @endif
+
         </div>
 
     </div>
