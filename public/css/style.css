@@ -1,0 +1,78 @@
+*{
+    font-family: 'Roboto';
+}
+
+#fill{
+    width: 100%;
+    height: 77px;
+}
+
+#msgAlert{
+    position: fixed !important;
+    top: 20%;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+nav{
+    position: fixed !important;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    z-index: 99;
+}
+
+#search-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/banner.jpg");
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+
+#search-container div:nth-child(1){
+    z-index: 1;
+}
+#search-container div:nth-child(2){
+    z-index: 2;
+}
+
+#search-container h2{
+    color: #f2a240;
+}
+
+#search-container input{
+    cursor: pointer;
+}
+
+.overlay{
+    background-color: rgb(9 8 8 / 11%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* Crete Events CSS */
+#form-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+
+
+
+footer{
+    width: 100%;
+    text-align: center;
+    background-color: #666666;
+    
+}
