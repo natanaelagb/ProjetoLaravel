@@ -8,16 +8,21 @@
     <div class="overlay"></div>
     <div class="w-50">
         <h2 class="display-6">Busque um evento</h2>
-        <form action="">
-            <input type="text" class="form-control" id="search" name="search" placeholder="Pesquisar...">
+        <form action="/" class="d-flex" method="GET">
+            <input type="text" id="search" name="search" placeholder="Pesquisar...">
+            <button type="submit" class="bg-primary" id="button-search"><ion-icon name="search"></ion-icon></button>
         </form>
     </div>
 </section>
 
 <section id="events-container" class="mt-4">
     <div class="container">
-        <h2 class="display-6">Próximos Eventos</h2>
-        <p class="fs-5 text-secondary">Veja os eventos nos próximos dias</p>
+        @if($search)
+            <h2 class="display-6">Busca por: {{$search}}</h2>
+        @else
+            <h2 class="display-6">Próximos Eventos</h2>
+            <p class="fs-5 text-secondary">Veja os eventos nos próximos dias</p>
+        @endif
         <div class="row">
             @foreach($events as $key)
             <div class="col-md-4 p-2">
@@ -35,7 +40,9 @@
             </div>
             @endforeach
 
-            @if(count($events) == 0)
+            @if(count($events) == 0 && $search)
+                <p class="fs-5 text-secondary mt-3">Não foram encontrados resultados para a busca: {{$search}}. <a href="/">Voltar para Home</a></p>
+            @elseif(count($events) == 0)
                 <p class="fs-5 text-secondary mt-3">Não há eventos disponíveis.</p>
             @endif
 
