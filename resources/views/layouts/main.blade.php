@@ -34,7 +34,7 @@
                         </li>
                         @auth
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="/painel">Painel</a>
+                                <a class="nav-link" href="/dashboard">Painel</a>
                             </li>
                             <form method="POST" action="/logout">
                                 @csrf

@@ -6,7 +6,7 @@
 <section id="section-create">
     <div id="form-container">
         <h2 class="mb-3 display-6">Crie o seu evento:</h2>
-        <form method="post" action="/eventos" enctype="multipart/form-data">
+        <form method="POST" action="/eventos" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Titulo</label>
@@ -16,7 +16,7 @@
             <div class="mb-3">
                 <label for="description" class="form-label">Descrição</label>
                 <textarea id="description" class="form-control" name="description" rows="4">
-                    </textarea>
+                </textarea>
             </div>
 
             <div class="mb-3">

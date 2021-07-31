@@ -16,8 +16,8 @@
                 <p class="mb-0"><ion-icon name="people-outline"></ion-icon> * Participantes</p>
                 <p class="mb-0"><ion-icon name="star-outline"></ion-icon> {{$eventOwner['name']}}</p>
                
-                <div class="mt-4 mb-4">
-                    <h3 class="fs-5">O evento conta com:</h3>
+                <div class="my-3">
+                    <p class="fs-5 fw-light">O evento conta com:</p>
                     <ul id="list-items">
                         @foreach($event['items'] as $items => $value)
                         <li><ion-icon name="play-outline"></ion-icon>  {{$value}}</li>

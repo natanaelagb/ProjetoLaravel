@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\User;
-use Illuminate\Console\Scheduling\EventMutex;
 use Illuminate\Support\Facades\File; 
 
 class EventController extends Controller
