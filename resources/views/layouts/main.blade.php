@@ -7,11 +7,13 @@
 
     <title>@yield("title")</title>
 
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
     <!-- CSS do bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- CSS da aplicação -->
     <link rel="stylesheet" href="/css/style.css">
+    
 </head>
 
 <body>
@@ -30,9 +32,26 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/eventos/criar">Criar Evento</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
+                        @auth
+                            <li class="nav-item me-2">
+                                <a class="nav-link" href="/painel">Painel</a>
+                            </li>
+                            <form method="POST" action="/logout">
+                                @csrf
+                                <button class="btn btn-primary" onclick="this.form.submit()">SAIR</button>
+                            </form>
+                            
+                        
+                        @endauth
+
+                        @guest
+                            <li class="nav-item">
+                                <a class="btn btn-outline-primary p-1 me-2" href="/register">REGISTRAR</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-primary p-1" href="/login">LOGAR</a>
+                            </li>
+                        @endguest
                     </ul>
                 </div>
             </div>
@@ -42,7 +61,7 @@
     <main>
         @if(session('msg'))
         <div id="msgAlert" class="alert alert-success">
-            Evento criado com sucesso!
+            {{session('msg')}}
             <button type="button" class="btn-close" onclick=" delDiv(this.parentNode)"></button>            
         </div>
     

@@ -14,7 +14,7 @@
                 <h2 class="display-6 fs-3 mb-3">{{$event['title']}}</h2>
                 <p class="mb-0"><ion-icon name="location-outline"></ion-icon> {{$event['city']}}</p>
                 <p class="mb-0"><ion-icon name="people-outline"></ion-icon> * Participantes</p>
-                <p class="mb-0"><ion-icon name="star-outline"></ion-icon> Dono do evento</p>
+                <p class="mb-0"><ion-icon name="star-outline"></ion-icon> {{$eventOwner['name']}}</p>
                
                 <div class="mt-4 mb-4">
                     <h3 class="fs-5">O evento conta com:</h3>

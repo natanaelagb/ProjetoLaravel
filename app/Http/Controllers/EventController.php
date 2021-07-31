@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Console\Scheduling\EventMutex;
+use Illuminate\Support\Facades\File; 
 
 class EventController extends Controller
 {
@@ -47,6 +49,9 @@ class EventController extends Controller
             $event->image = $imageName;
         }
 
+        $user = auth()->user();
+        $event->user_id = $user->id;
+
         $event->save();
 
         return redirect("/")->with('msg', 'Evento criado com sucesso!');
@@ -56,6 +61,26 @@ class EventController extends Controller
 
         $event = Event::findOrFail($id);
 
-        return view("events.show", ["event" => $event]);
+        $eventOwner = User::where("id", $event->user_id)->first()->toArray();
+
+        return view("events.show", ["event" => $event, "eventOwner" => $eventOwner]);
+    }
+
+    public function destroy($id){
+
+        $event = Event::findOrFail($id);
+        File::delete("img/events/".$event['image']);
+        $event->delete();
+
+        return redirect("/painel")->with("msg", "Evento deletado com sucesso!");
+    }
+
+    public function dashboard(){
+        
+        $user = auth()->user();
+
+        $events = $user->events;
+
+        return view("dashboard", ["user" => $user, "events" => $events]);
     }
 }

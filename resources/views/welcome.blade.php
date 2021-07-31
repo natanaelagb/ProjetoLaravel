@@ -41,7 +41,7 @@
             @endforeach
 
             @if(count($events) == 0 && $search)
-                <p class="fs-5 text-secondary mt-3">Não foram encontrados resultados para a busca: {{$search}}. <a href="/">Voltar para Home</a></p>
+                <p class="fs-5 text-secondary mt-3">Não foram encontrados resultados para a busca: {{$search}}. <a href="/">Voltar para Dashboard</a></p>
             @elseif(count($events) == 0)
                 <p class="fs-5 text-secondary mt-3">Não há eventos disponíveis.</p>
             @endif
