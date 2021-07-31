@@ -54,7 +54,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect("/")->with('msg', 'Evento criado com sucesso!');
+        return redirect("/")->with('msg', 'Evento criado com sucesso! '.$request->date);
     }
 
     public function show($id){
@@ -73,6 +73,35 @@ class EventController extends Controller
         $event->delete();
 
         return redirect("/painel")->with("msg", "Evento deletado com sucesso!");
+    }
+
+    public function edit($id){
+
+        $event = Event::findOrFail($id);
+
+        return view("events.edit", ["event" => $event]);
+    }
+
+    public function update(Request $request){
+
+        $data = $request->all();
+        $event= Event::findOrFail($request->id);
+
+        if($request->hasFile("image") && $request->file("image")->isValid()){
+
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path("img/events"), $imageName);
+
+            File::delete("img/events/".$event['image']);
+
+            $data['image'] = $imageName;
+        }
+
+        $event->update($data);
+
+        return redirect("/painel")->with("msg", "Evento editado com sucesso!");
     }
 
     public function dashboard(){

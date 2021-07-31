@@ -21,7 +21,7 @@
                     <td>{{$key['title']}}</td>
                     <td>n</td>
                     <td>
-                        <a href="#" class="btn btn-warning">Editar</a>
+                        <a href="/eventos/editar/{{$key['id']}}" class="btn btn-warning">Editar</a>
                         <form method="POST" action="/eventos/{{$key['id']}}" class="d-inline">
                             @csrf
                             @method("DELETE")
