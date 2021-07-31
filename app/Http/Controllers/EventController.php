@@ -100,7 +100,7 @@ class EventController extends Controller
 
         $event->update($data);
 
-        return redirect("/painel")->with("msg", "Evento editado com sucesso!");
+        return redirect("/dashboard")->with("msg", "Evento editado com sucesso!");
     }
 
     public function dashboard(){
