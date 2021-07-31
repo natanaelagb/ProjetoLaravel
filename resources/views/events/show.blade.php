@@ -13,7 +13,7 @@
             <div id="info-event" class="col-sm-5 ">
                 <h2 class="display-6 fs-3 mb-3">{{$event['title']}}</h2>
                 <p class="mb-0"><ion-icon name="location-outline"></ion-icon> {{$event['city']}}</p>
-                <p class="mb-0"><ion-icon name="people-outline"></ion-icon> * Participantes</p>
+                <p class="mb-0"><ion-icon name="people-outline"></ion-icon> {{ count($event->users) }} Participantes</p>
                 <p class="mb-0"><ion-icon name="star-outline"></ion-icon> {{$eventOwner['name']}}</p>
                
                 <div class="my-3">
@@ -25,7 +25,10 @@
                     </ul>
                 </div>
 
-                <button type="button" class="btn btn-primary">Confirmar Presença</button>
+                <form method="POST" action="/eventos/participar/{{$event['id']}}">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Confirmar Presença</button>
+                </form>
 
             </div>
         </div>

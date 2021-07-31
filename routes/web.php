@@ -30,6 +30,8 @@ Route::put("/eventos/{id}",[EventController::class, "update"])->middleware("auth
 
 Route::get("/eventos/editar/{id}", [EventController::class, "edit"])->middleware("auth");
 
+Route::post("/eventos/participar/{id}", [EventController::class, "eventJoin"])->middleware("auth");
+
 
 
 

@@ -33,6 +33,7 @@
                     
                     <div class="card-body">
                         <p>{{ date("d/m/Y H:i:s", strtotime($key['date'])) }}</p>
+                        <p>{{ count($key->users)}} Participantes</p>
                         <p>{{$key['title']}}</p>
                         <a href="/eventos/{{$key['id']}}" class="btn btn-primary">Saiba Mais</a>
                     </div>
