@@ -10,12 +10,12 @@
         <h2 class="display-6">Busque um evento</h2>
         <form action="/" class="d-flex" method="GET">
             <input type="text" id="search" name="search" placeholder="Pesquisar...">
-            <button type="submit" class="bg-primary" id="button-search"><ion-icon name="search"></ion-icon></button>
+            <button type="submit" class="bg-primary" id="button-search"><i class="bi bi-search"></i></button>
         </form>
     </div>
 </section>
 
-<section id="events-container" class="mt-4">
+<section id="events-container" class="pt-4">
     <div class="container">
         @if($search)
             <h2 class="display-6">Busca por: {{$search}}</h2>
@@ -32,9 +32,9 @@
                     </div>
                     
                     <div class="card-body">
-                        <p>{{ date("d/m/Y H:i:s", strtotime($key['date'])) }}</p>
-                        <p>{{ count($key->users)}} Participantes</p>
-                        <p>{{$key['title']}}</p>
+                        <p><i class="bi bi-calendar-check"></i>  {{ date("l, d/m/Y H:i", strtotime($key['date'])) }}</p>
+                        <p><i class="bi bi-people"></i>  {{ count($key->users)}} Participantes</p>
+                        <p><i class="bi bi-bookmarks"></i> {{$key['title']}}</p>
                         <a href="/eventos/{{$key['id']}}" class="btn btn-primary">Saiba Mais</a>
                     </div>
                 </div>

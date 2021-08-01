@@ -2,6 +2,7 @@
 
 @section("title", $event['title'])
 
+
 @section("content")
 <section id="single-event">
     <div class="container">
@@ -12,23 +13,28 @@
 
             <div id="info-event" class="col-sm-5 ">
                 <h2 class="display-6 fs-3 mb-3">{{$event['title']}}</h2>
-                <p class="mb-0"><ion-icon name="location-outline"></ion-icon> {{$event['city']}}</p>
-                <p class="mb-0"><ion-icon name="people-outline"></ion-icon> {{ count($event->users) }} Participantes</p>
-                <p class="mb-0"><ion-icon name="star-outline"></ion-icon> {{$eventOwner['name']}}</p>
-               
+                <p class="mb-0"><i class="bi bi-geo-alt"></i> {{$event['city']}}</p>
+                <p class="mb-0"><i class="bi bi-people"></i> {{ count($event->users) }} Participantes</p>
+                <p class="mb-0"><i class="bi bi-star"></i> {{$eventOwner['name']}}</p>
+                
                 <div class="my-3">
                     <p class="fs-5 fw-light">O evento conta com:</p>
-                    <ul id="list-items">
+                    <ul id="list-items" class="p-0">
                         @foreach($event['items'] as $items => $value)
-                        <li><ion-icon name="play-outline"></ion-icon>  {{$value}}</li>
+                        <li><i class="bi bi-check-square"></i> {{$value}}</li>
                         @endforeach
                     </ul>
                 </div>
-
+                @if ($hasUserJoin)
+                    <div class="alert alert-success" role="alert">
+                        <!--<i class="bi bi-check-lg"></i>-->Você já está participando do evento!
+                    </div>
+                @else
                 <form method="POST" action="/eventos/participar/{{$event['id']}}">
                     @csrf
                     <button type="submit" class="btn btn-primary">Confirmar Presença</button>
                 </form>
+                @endif
 
             </div>
         </div>

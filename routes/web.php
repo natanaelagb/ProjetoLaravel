@@ -18,6 +18,8 @@ Route::get('/',[EventController::class, "index"]);
 
 Route::get("/dashboard", [EventController::class, "dashboard"])->middleware("auth");
 
+Route::get("/painel", [EventController::class, "painel"])->middleware("auth");
+
 Route::get("/eventos/criar", [EventController::class, "create"])->middleware("auth");
 
 Route::get('/eventos/{id}',[EventController::class, "show"]);
@@ -32,6 +34,7 @@ Route::get("/eventos/editar/{id}", [EventController::class, "edit"])->middleware
 
 Route::post("/eventos/participar/{id}", [EventController::class, "eventJoin"])->middleware("auth");
 
+Route::delete("/eventos/sair/{id}", [EventController::class, "eventLeave"])->middleware("auth");
 
 
 

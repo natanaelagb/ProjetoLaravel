@@ -44,7 +44,7 @@
 
             <div class="mb-3">
                 <label for="date" class="form-label">Data:</label>
-                <input type="datetime-local" id="date" class="form-control" name="date" value="{{ strftime('%Y-%m-%dT%H:%M:%S', strtotime($event['date'])) }}">
+                <input type="datetime-local" id="date" class="form-control" name="date" value="{{ date("Y-m-d\TH:i", strtotime($event['date'])) }}">
             </div>
 
             <div class="mb-3 form-check">
