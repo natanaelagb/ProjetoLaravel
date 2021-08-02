@@ -92,14 +92,21 @@ class EventController extends Controller
         }else{
             return redirect("/dashboard");
         }
-
-        
+    
     }
 
 
     public function edit($id){
+        
+        $authUser = auth()->user();
         $event = Event::findOrFail($id);
-        return view("events.edit", ["event" => $event]);
+
+        if($event['user_id'] == $authUser->id){
+            return view("events.edit", ["event" => $event]);
+        }else{
+            return redirect("/dashboard");
+        }
+
     }
 
 

@@ -5,16 +5,17 @@
 @section("content")
 <section id="dashboard" class="container">
     <div class="row">
-        <div class="col-3 mt-3">
+        <div class="col-sm-3 mt-3">
             <div id="target"class="card">
                 <div class="card-body p-0">
                     <div class="border-bottom">
                         <a class="div-link p-2 link-active" target="card-owner">
-                            Sobre
+                            <i class="bi bi-gear"></i>
+                            Meus Eventos
                         </a>
                     </div>
                     <div class="border-bottom">
-                        <a class="div-link p-2" target="card-participant">Cadastrar Equipe</a>
+                        <a class="div-link p-2" target="card-participant">Eventos que participo</a>
                     </div>
 
                 </div>
@@ -22,7 +23,7 @@
         </div>
         <!--Col3-->
 
-        <div class="col-9">
+        <div class="col-sm-9">
             <div id="card-owner" class="card mt-3">
                 <div class="card-head bg-secondary text-white ">
                     <h2 class="display-6 fs-4 ps-3 py-1">Meus eventos: </h2>
