@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Eventos</a>
+                            <a class="nav-link active" href="/">Eventos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/eventos/criar">Criar Evento</a>

@@ -18,8 +18,6 @@ Route::get('/',[EventController::class, "index"]);
 
 Route::get("/dashboard", [EventController::class, "dashboard"])->middleware("auth");
 
-Route::get("/painel", [EventController::class, "painel"])->middleware("auth");
-
 Route::get("/eventos/criar", [EventController::class, "create"])->middleware("auth");
 
 Route::get('/eventos/{id}',[EventController::class, "show"]);

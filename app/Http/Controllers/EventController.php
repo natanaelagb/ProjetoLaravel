@@ -133,19 +133,13 @@ class EventController extends Controller
 
 
     public function dashboard(){ 
+        
         $user = auth()->user();
         $events = $user->events;
 
         return view("dashboard", ["user" => $user, "events" => $events]);
     }
 
-    
-    public function painel(){ 
-        $user = auth()->user();
-        $events = $user->events;
-
-        return view("painel", ["user" => $user, "events" => $events]);
-    }
 
     public function eventJoin($id){
 

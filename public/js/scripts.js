@@ -37,3 +37,7 @@ for (let index = 0; index < target.length; index++) {
     })
 
 }
+
+window.addEventListener("scroll", function(){
+    console.log("sim")
+})

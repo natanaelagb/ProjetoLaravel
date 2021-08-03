@@ -205,6 +205,11 @@ nav{
     display: block;
 }
 
+#target{
+    position: sticky;
+    top: 93px;
+}
+
 #target a{
     text-decoration: none;
 }

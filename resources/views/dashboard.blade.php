@@ -4,6 +4,7 @@
 
 @section("content")
 <section id="dashboard" class="container">
+    
     <div class="row">
         <div class="col-sm-3 mt-3">
             <div id="target"class="card">
@@ -39,6 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @for($i = 0; $i < 20; $i++)
                             @foreach($events as $key)
                             <tr>
                                 <th scope="row">{{$loop->index + 1}}</th>
@@ -54,6 +56,7 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @endfor
                         </tbody>
                     </table>
                 </div>
