@@ -26,9 +26,6 @@ nav{
     margin-right: 0.3rem;
 }
 
-.card-body p{
-    color:darkred
-}
 
 /* Index CSS
 /
@@ -130,6 +127,14 @@ nav{
     overflow: hidden;
 }
 
+.single-event .card-body p{
+    color: #6c757d;
+}
+
+.single-event .card-body i{
+    color: #f2a240;
+}
+
 .event-image{
     height: 150px;
     overflow: hidden;
@@ -220,6 +225,16 @@ table th,td{
 
 .overflow{
     overflow: auto;
+}
+
+.btn-delete{
+    border: 0;
+    background-color: transparent;
+    color: darkred;
+}
+
+.btn-edit{
+    color: orangered;
 }
 
 footer{

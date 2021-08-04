@@ -10,12 +10,12 @@
             <div id="target"class="card">
                 <div class="card-body p-0">
                     <div class="border-bottom">
-                        <a class="div-link p-2 link-active" target="card-owner">
+                        <a id="link-owner" class="div-link p-2 link-active" target="card-owner">
                             <i class="bi bi-gear"></i>
                             Meus Eventos
                         </a>
                     </div>
-                    <div class="border-bottom">
+                    <div id="link-participant" class="border-bottom">
                         <a class="div-link p-2" target="card-participant">Eventos que participo</a>
                     </div>
 
@@ -40,23 +40,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for($i = 0; $i < 20; $i++)
                             @foreach($events as $key)
                             <tr>
                                 <th scope="row">{{$loop->index + 1}}</th>
                                 <td>{{$key['title']}}</td>
                                 <td>{{ count($key->users)}}</td>
                                 <td>
-                                    <a href="/eventos/editar/{{$key['id']}}" class="btn btn-warning">Editar</a>
+                                    <a href="/eventos/editar/{{$key['id']}}"><i class="bi bi-pen btn-edit"></i></a>
                                     <form method="POST" action="/eventos/{{$key['id']}}" class="d-inline">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger" onclick="this.form.submit()">Deletar</button>
+                                        <button type="submit" class="btn-delete"><i class="bi bi-x-lg"></i></button>
                                     </form>
                                 </td>
                             </tr>
                             @endforeach
-                            @endfor
                         </tbody>
                     </table>
                 </div>
@@ -86,8 +84,7 @@
                                     <form method="POST" action="/eventos/sair/{{$key['id']}}" class="d-inline">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger" onclick="this.form.submit()">Cancelar
-                                            Inscrição</button>
+                                        <button type="submit" class="btn-delete"><i class="bi bi-x-lg"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -100,8 +97,10 @@
         <!--Col9-->
     </div>
     <!--Row-->
-
-
 </section>
 
+@endsection
+
+@section("scripts")
+<script src="/js/dashboard.js"> </script>
 @endsection
